@@ -1,0 +1,43 @@
+{
+  "name": "restful-errors",
+  "version": "1.0.0",
+  "description": "An utility class to generate and handle RESTful api errors in web service.",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "test": "mocha"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-es2015-destructuring",
+      "transform-object-rest-spread"
+    ]
+  },
+  "keywords": [
+    "restful api",
+    "errors",
+    "error handler"
+  ],
+  "author": "Rocky Li",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4",
+    "mocha": "^6.0.2"
+  },
+  "dependencies": {
+    "decamelize": "^3.0.0",
+    "http-status-codes": "^1.3.2",
+    "lodash": "^4.17.11"
+  }
+}
