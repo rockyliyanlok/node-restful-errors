@@ -289,6 +289,26 @@ const matches = (field, pattern) => {
   return `${theField(field)} must matches the pattern '${pattern}'.`
 }
 
+const exists = field => {
+  return `${theField(field)} is required.`
+}
+
+const eitherExists = fields => {
+  return `Either the ${_.join(fields, ' field or the ')} field is required.`
+}
+
+const valid = (field, value) => {
+  return `${mustContains(field)} a valid ${value || 'value'}.`
+}
+
+const conflict = (field, column, value) => {
+  return `The ${field} ${(!_.isNil(column) && !_.isNil(value)) ? `(${column}=${value})` : ''} has already existed.`
+}
+
+const notFound = (field, column, value) => {
+  return `The ${field} ${(!_.isNil(column) && !_.isNil(value)) ? `(${column}=${value})` : ''} is not found.`
+}
+
 module.exports = { 
   contains, 
   equals, 
@@ -348,5 +368,10 @@ module.exports = {
   isUppercase, 
   isVariableWidth, 
   isWhitelisted, 
-  matches
+  matches, 
+  exists, 
+  eitherExists, 
+  valid, 
+  conflict, 
+  notFound, 
 }

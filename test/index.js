@@ -6,8 +6,9 @@ const chai = require('chai')
 const chaiHttp = require('chai-http')
 const expect = chai.expect
 const app = require('./app')
-
 chai.use(chaiHttp)
+
+const RestfulErrors = require('../src')
 
 const getGeneralError = code => { 
   return decamelize(HttpStatus.getStatusText(code).replace(/\s/g, ''))
@@ -110,8 +111,8 @@ describe('restful error with customized message', () => {
     expect(body.code).to.equal(code)
     expect(body.error).to.equal(getGeneralError(code))
     expect(body.error_description).to.equal([
-      'The uid field is required.', 
-      'The name field must be between 2 and 255 characters in length.'
+      RestfulErrors.message.exists('uid'), 
+      RestfulErrors.message.isLength('name', { min: 2, max: 255 })
     ].join(' '))
   })
 

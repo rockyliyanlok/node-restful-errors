@@ -19,18 +19,18 @@ npm install --save restful-errors
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
-const Restful = require('restful-errors');
+const RestfulErrors = require('restful-errors');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/bad-request', (req, res, next) => {
-  next(new Restful.BadRequestError());
+  next(new RestfulErrors.BadRequestError());
 })
 
 app.get('/customized-messages', (req, res, next) => {
-  next(new Restful.BadRequestError([
+  next(new RestfulErrors.BadRequestError([
     { 
       location: 'query', 
       param: 'uid', 
@@ -46,7 +46,7 @@ app.get('/customized-messages', (req, res, next) => {
   ]));
 })
 
-app.use(Restful.errorHandler());
+app.use(RestfulErrors.handler());
 
 const server = http.createServer(app);
 server.listen(3000);

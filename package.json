@@ -1,6 +1,6 @@
 {
   "name": "restful-errors",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "An utility class to generate and handle RESTful api errors in web service.",
   "main": "lib/index.js",
   "scripts": {

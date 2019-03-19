@@ -1,7 +1,7 @@
 'use strict'
 
 const errors = require('./errors')
-const errorHandler = require('./error-handler')
-const errorMessage = require('./error-message')
+const handler = require('./error-handler')
+const message = require('./error-message')
 
-module.exports = { ...errors, errorHandler, errorMessage }
+module.exports = { ...errors, handler, message }
